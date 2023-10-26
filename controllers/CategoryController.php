@@ -37,20 +37,17 @@ class CategoryController extends Controller
                         [
                             'allow' => true,
                             'actions' => ['index'],
-                            'roles' => ['category/index'],
-                            // 'roles' => ['@'],
-                            // 'matchCallback' => function($rules, $action) {
-                            //     $action = Yii::$app->controller->action->id;
-                            //     $controller = Yii::$app->controller->id;
-                            //     $route = "$controller/$action";
-                            //     // dd(Yii::$app->user);    
-
-                            //     // dd($route);
-                            //     // dd(Yii::$app->user);
-                            //     // dd($route);
-                            //     // dd(Yii::$app->user->can($route));
-                            //     return Yii::$app->user->can($route);
-                            // }
+                            'roles' => ['categoryIndex'],
+                        ],
+                        [
+                            'allow' => true,
+                            'actions' => ['create'],
+                            'roles' => ['categoryCreate'],
+                        ],
+                        [
+                            'allow' => true,
+                            'actions' => ['update'],
+                            'roles' => ['categoryUpdate'],
                         ],
                     ],
                 ],

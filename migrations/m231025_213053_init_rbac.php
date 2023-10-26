@@ -15,26 +15,26 @@ class m231025_213053_init_rbac extends Migration
         $auth = Yii::$app->authManager;
 
         // add "createPost" permission
-        $categoryIndex = $auth->createPermission('categories/index');
+        $categoryIndex = $auth->createPermission('categoryIndex');
         $categoryIndex->description = 'Index Categories';
         $auth->add($categoryIndex);
 
         // add "updatePost" permission
-        $categoryCreate = $auth->createPermission('categories/create');
+        $categoryCreate = $auth->createPermission('categoryCreate');
         $categoryCreate->description = 'Create Categories';
         $auth->add($categoryCreate);
 
         // add "categoryCreate" permission
-        $categoryView = $auth->createPermission('categories/view');
+        $categoryView = $auth->createPermission('categoryView');
         $categoryView->description = 'View Categories';
         $auth->add($categoryView);
 
         // add "categoryCreate" permission
-        $categoryUpdate = $auth->createPermission('categories/update');
+        $categoryUpdate = $auth->createPermission('categoryUpdate');
         $categoryUpdate->description = 'Update Categories';
         $auth->add($categoryUpdate);
 
-        $categoryDelete = $auth->createPermission('categories/delete');
+        $categoryDelete = $auth->createPermission('categoryDelete');
         $categoryDelete->description = 'Delete Categories';
         $auth->add($categoryDelete);
 
@@ -54,9 +54,12 @@ class m231025_213053_init_rbac extends Migration
         $auth->addChild($manpreet, $author);
 
         // Assign roles to users. 1 and 2 are IDs returned by IdentityInterface::getId()
-        // usually implemented in your User model.
-        $auth->assign($author, 2);
-        $auth->assign($manpreet, 1);
+        // // usually implemented in your User model.
+
+        // $authorRole = $auth->getRole('author');
+        // $auth->assign($authorRole, 1);
+        // $manpreetRole = $auth->getRole('manpreet');
+        // $auth->assign($manpreetRole, 2);
     }
 
     /**
